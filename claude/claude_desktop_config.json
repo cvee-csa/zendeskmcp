@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "zendesk": {
+      "command": "/Users/catherinevee/.local/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/catherinevee/Desktop/git/zendesk-mcp-server",
+        "run",
+        "zendesk"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/catherinevee/Desktop/git/"
+      ]
+    }
+  },
+  "preferences": {
+    "coworkScheduledTasksEnabled": true,
+    "ccdScheduledTasksEnabled": true,
+    "sidebarMode": "task",
+    "coworkWebSearchEnabled": true
+  }
+}
