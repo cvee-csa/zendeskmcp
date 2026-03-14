@@ -55,6 +55,34 @@ This Zendesk-Claude integration includes files from the [zendesk-mcp-server](htt
 
 ## Zendesk API Pre-requisites
 
-0. Modify the parameters in the `claude_desktop_config.json` JSON file to use the Zendesk MCP Server (example file in `zendeskmcp/claude`) and run the `uv` Python package manager command. Make sure the `"command"` JSON parameter is pointed to the path for the correct executable or bin file and the `"--directory"` parameter is configured to where the `zendesk-mcp-server` directory is.
+0. Configure the MCP server by modifying `claude/claude_desktop_config.json`:
 
-1. Modify all three values in `.env.example`, this will handle the authentication piece for the Zendesk API.
+   ```json
+   {
+     "mcpServers": {
+       "zendesk": {
+         "command": "/path/to/uv",
+         "args": ["--directory", "/path/to/zendesk-mcp-server", "run", "..."]
+       }
+     }
+   }
+   ```
+
+   | Parameter | What to set |
+   |---|---|
+   | `"command"` | Full path to your `uv` executable (e.g., `/Users/yourname/.local/bin/uv`) |
+   | `"--directory"` | Path to the `zendesk-mcp-server` directory on your machine |
+
+   An example config file is provided in `zendeskmcp/claude/claude_desktop_config.json`.
+
+1. Configure Zendesk API authentication by copying `.env.example` to `.env` and filling in all three values:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   | Variable | Value | Where to find it |
+   |---|---|---|
+   | `ZENDESK_SUBDOMAIN` | Your Zendesk subdomain (e.g., `cloudsecurityalliance`) | The part before `.zendesk.com` in your Zendesk URL |
+   | `ZENDESK_EMAIL` | Agent email address (e.g., `you@yourorg.org`) | The email you use to log into Zendesk |
+   | `ZENDESK_API_KEY` | Your Zendesk API token | Zendesk Admin → Apps and Integrations → Zendesk API → API token |
