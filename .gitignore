@@ -17,4 +17,10 @@ wheels/
 .env.dev
 
 # CSA-specific
-zendeskdata/*.csv
+zendeskdata/agents.csv
+zendeskdata/comments.csv
+zendeskdata/groups.csv
+zendeskdata/skipped_tickets.csv
+zendeskdata/tags.csv
+zendeskdata/ticket_metrics.csv
+zendeskdata/tickets.csv
