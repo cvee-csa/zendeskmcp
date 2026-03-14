@@ -19,7 +19,24 @@ This Zendesk-Claude integration includes files from the [zendesk-mcp-server](htt
    git config --global user.email catherineiscool@csa.com
    ```
 
-1. Install: Python, Python Installation Packager (PIP), `uv`, `pip install python-dotenv requests`
+1. Install the following:
+
+   **Runtime & Package Managers:**
+
+   - [Python 3.10+](https://www.python.org/downloads/)
+   - [pip](https://pip.pypa.io/en/stable/installation/) (Python package installer — included with most Python installations)
+   - [uv](https://github.com/astral-sh/uv) (fast Python package manager, used by the MCP server)
+
+   **Python Packages:**
+
+   ```bash
+   pip install python-dotenv requests
+   ```
+
+   | Package | Purpose |
+   |---|---|
+   | `python-dotenv` | Loads Zendesk API credentials from the `.env` file |
+   | `requests` | Makes HTTP requests to the Zendesk REST API |
 
 2. Run the export scripts in order:
 
