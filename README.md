@@ -98,3 +98,16 @@ This Zendesk-Claude integration includes files from the [zendesk-mcp-server](htt
    | `groups.csv` | `list_groups.py` | All Zendesk groups (teams/queues) — maps numeric group IDs to names and descriptions | `id`, `name`, `description`, `created_at`, `updated_at` |
    | `tags.csv` | `export_tags.py` | Pre-aggregated tag frequency table — each unique tag with its count and percentage across all tickets | `tag`, `count`, `pct_of_tickets` |
    | `skipped_tickets.csv` | `export_comments.py` | Tickets that returned errors (e.g., 404 Not Found) during the comment export — useful for identifying deleted or inaccessible tickets | `ticket_id`, `error` |
+
+3. These are the types of functions that the Zendesk Connector supports:
+
+create_ticket
+get_ticket
+get_tickets
+update_tickets
+
+create_ticket_comment
+get_ticket_comments
+get_ticket_attachment
+
+*HOWEVER, if a ticket is closed, there is not an API function to re-open a ticket.
