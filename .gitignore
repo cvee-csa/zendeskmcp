@@ -24,3 +24,8 @@ zendeskdata/skipped_tickets.csv
 zendeskdata/tags.csv
 zendeskdata/ticket_metrics.csv
 zendeskdata/tickets.csv
+
+# Embedded MCP server local runtime files
+zendesk-mcp-server/.env
+zendesk-mcp-server/.venv/
+zendesk-mcp-server/.zendesk_oauth_tokens.json

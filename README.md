@@ -6,7 +6,7 @@
 
 ---
 
-This Zendesk-Claude integration includes files from the [zendesk-mcp-server](https://github.com/reminia/zendesk-mcp-server) repository, including the MCP server and `zendesk_client` Python files.
+This Zendesk-Claude integration now includes its own local copy of the Zendesk MCP server in [`zendesk-mcp-server/`](/Users/catherinevee/Desktop/git/zendeskmcp/zendesk-mcp-server), so you can maintain your Claude-facing server here without depending on the sibling clone.
 
 ---
 
@@ -62,7 +62,7 @@ This Zendesk-Claude integration includes files from the [zendesk-mcp-server](htt
      "mcpServers": {
        "zendesk": {
          "command": "/path/to/uv",
-         "args": ["--directory", "/path/to/zendesk-mcp-server", "run", "..."]
+       "args": ["--directory", "/path/to/zendeskmcp/zendesk-mcp-server", "run", "..."]
        }
      }
    }
@@ -71,7 +71,7 @@ This Zendesk-Claude integration includes files from the [zendesk-mcp-server](htt
    | Parameter | What to set |
    |---|---|
    | `"command"` | Full path to your `uv` executable (e.g., `/Users/yourname/.local/bin/uv`) |
-   | `"--directory"` | Path to the `zendesk-mcp-server` directory on your machine |
+   | `"--directory"` | Path to the embedded `zendeskmcp/zendesk-mcp-server` directory on your machine |
 
    An example config file is provided in `zendeskmcp/claude/claude_desktop_config.json`.
 
@@ -111,3 +111,31 @@ get_ticket_comments
 get_ticket_attachment
 
 *HOWEVER, if a ticket is closed, there is not an API function to re-open a ticket.
+
+---
+
+## Embedded MCP Server
+
+The Claude MCP server now lives in `zendeskmcp/zendesk-mcp-server/` and includes:
+
+- OAuth `authorization_code` support
+- legacy API token fallback
+- the `begin_oauth_authorization` and `complete_oauth_authorization` tools
+
+If you want Claude Desktop to use this owned copy, point its Zendesk MCP config at:
+
+```json
+{
+  "mcpServers": {
+    "zendesk": {
+      "command": "/Users/catherinevee/.local/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/catherinevee/Desktop/git/zendeskmcp/zendesk-mcp-server",
+        "run",
+        "zendesk"
+      ]
+    }
+  }
+}
+```

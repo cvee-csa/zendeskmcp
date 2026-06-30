@@ -4,7 +4,7 @@
       "command": "/Users/catherinevee/.local/bin/uv",
       "args": [
         "--directory",
-        "/Users/catherinevee/Desktop/git/zendesk-mcp-server",
+        "/Users/catherinevee/Desktop/git/zendeskmcp/zendesk-mcp-server",
         "run",
         "zendesk"
       ]
